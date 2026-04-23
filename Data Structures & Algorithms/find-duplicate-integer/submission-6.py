@@ -15,15 +15,12 @@ class Solution:
 # much optimised approach
 class Solution:
     def findDuplicate(self, nums: List[int]) -> int:
-        n = len(nums)
-        res=0
-        l=[]
-        for i in range(n):
-            if(nums[i] not in l):
-                l.append(nums[i])
-            else:
-                res=nums[i]
-        return res
+        seen = set()
+        for num in nums:
+            if num in seen:
+                return num
+            seen.add(num)
+        raise ValueError("No duplicate value found")
     
         
 # If the question asks for the duplicate number without modifying the array and requires indexing do let me know
